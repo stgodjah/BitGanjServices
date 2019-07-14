@@ -7,18 +7,11 @@ function fetchParams () {
   for (var i = 0; i < params.length; i++) {
     var id = params[i].id;
     var user = params[i].user;
-    var pass = params[i].pass;
     var proxy = params[i].proxy;
-
-
-    paramsList.innerHTML +=   '<div class="well">'+
-                              '<h6>Issue ID: ' + id + '</h6>'+
-                              '<p><span class="label label-info">' + user + '</span></p>'+
-                              '<h3>' + pass+ '</h3>' + 
-                              '<h3>' + proxy + '</h3>' + 
-                              '<a href="#" class="btn btn-warning" onclick="checkParams(\''+id+'\')">Active</a> '+
-                              '<a href="#" class="btn btn-danger" onclick="deleteParams(\''+id+'\')">Delete</a>'+
-                              '</div>';
+    paramsList.innerHTML +=   '<div class="well"><h6>Prams ID: ' + id + '</h6>'+
+                              '<p><span class="label label-info">UserId:' + user + '</span><span class="label label-info">proxy:' + proxy + '</span></p>'+
+                              '<p><a href="#" class="btn btn-warning" onclick="checkParams(\''+id+'\')">Active</a> '+
+                              '<a href="#" class="btn btn-danger" onclick="deleteParams(\''+id+'\')">Delete</a></p></div>';
   }
 }
 
@@ -45,9 +38,7 @@ function saveParams(e) {
   }
 
   document.getElementById('paramsInputForm').reset();
-
   fetchIssues();
-
   e.preventDefault();
 }
 
@@ -65,16 +56,13 @@ function checkParams (id) {
   }
 }
 
-function deleteIssue (id) {
+function deleteParams (id) {
   var params = JSON.parse(localStorage.getItem('params'));
-
   for(var i = 0; i < params.length; i++) {
     if (params[i].id == id) {
       params.splice(i, 1);
     }
   }
-
   localStorage.setItem('params', JSON.stringify(params));
-
   fetchParams();
 }

@@ -21,6 +21,8 @@ if (isset($_GET["user"]) && isset($_GET["pass"])) {
                     echo \sprintf("Try to create new wallet name:%s\n<br> Got result:%s\n<br>", $vNewName , $vNewWalletInstrumentId );        
                     echo ("Rendering wallets:");
                     echo $vApi->renderGetWallets();
+                    $vTotalBalance = $vApi->getTotalBalance();
+                    echo \sprintf("Total balance:%s\n<br>",$vTotalBalance  );        
                     $vNewWallet = $vApi->getWalletByInstrumentId($vNewWalletInstrumentId);
                     $vNewWalletNumber = $vNewWallet['number'];
                     echo (\sprintf("Getting wallet number: %s\n<br>", $vNewWalletNumber));
@@ -51,14 +53,12 @@ if (isset($_GET["user"]) && isset($_GET["pass"])) {
                 <div class="form-group">
                 <label for="paramsUser">Login</label>
                 <input type="text" class="form-control" id="paramsUser" placeholder="Username for login" name="user">
-                </div>
-                <div class="form-group">
                 <label for="paramsPass">Password</label>
                 <input type="text" class="form-control" id="paramsPass" placeholder="Password for login" name="pass">
                 </div>
                 <div class="form-group">
                 <label for="paramsProxy">Proxy</label>
-                <input type="text" class="form-control" id="paramsProxy" placeholder="Proxy for get token" name="proxy">
+                <input type="text" class="form-control" id="paramsProxy" placeholder="Proxy for get token" name="proxy" value="217.27.151.75:34935" >
                 </div>
                <input type="hidden" name="start_debug" value="1">
                <input type="hidden" name="debug_host" value="localhost">

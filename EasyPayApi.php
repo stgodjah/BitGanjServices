@@ -68,7 +68,7 @@ class EasyPayApi {
         return $result;
    }
 
-    public function isInited() {
+   public function isInited() {
         $result = false;
         if (!empty($this->inExpires)) {
             $currentDT = new \DateTime("now") ;
@@ -79,13 +79,22 @@ class EasyPayApi {
             }
         }
         return $result;
-    }
+   }
 
-    public function setIsHideMainWallet($isHideMainWallet) {
+   public function setIsHideMainWallet($isHideMainWallet) {
         $this->isHideMainWallet = $isHideMainWallet;
-    }
+   }
 
-    public function getWallets() {
+   public function getTotalBalance() {
+        $vResult = 0;
+        $this->getWallets();
+        foreach ($this->Wallets as $value) {
+                    $vResult += $value['balance'];
+            }
+    return $vResult;
+  }
+
+  public function getWallets() {
         $result = false;
         try {
             $vAuth = \sprintf('%s %s', $this->Token_type, $this->Access_token);
