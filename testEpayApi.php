@@ -58,7 +58,7 @@ if (isset($_GET["user"]) && isset($_GET["pass"])) {
                 </div>
                 <div class="form-group">
                 <label for="paramsProxy">Proxy</label>
-                <input type="text" class="form-control" id="paramsProxy" placeholder="Proxy for get token" name="proxy" value="217.27.151.75:34935" >
+                <input type="text" class="form-control" id="paramsProxy" placeholder="Proxy for get token" name="proxy" value="" >
                 </div>
                <input type="hidden" name="start_debug" value="1">
                <input type="hidden" name="debug_host" value="localhost">

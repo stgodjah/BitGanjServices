@@ -4,13 +4,14 @@
     "type": "library",
     "authors": [
         {
-            "name": "stgodjah",
-            "email": "godjah@bitganj.website"
+            "name": "godjah",
+            "email": "bitganj@protonmail.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-        "guzzlehttp/guzzle": "^6.0"
+        "guzzlehttp/guzzle": "^6.0",
+        "phpmailer/phpmailer": "6.0.x-dev"
     },
     "require-dev": {
         "guzzlehttp/guzzle": "^6.0"
@@ -21,4 +22,3 @@
         }
     }
 }
-
